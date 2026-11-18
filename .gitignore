@@ -1,0 +1,31 @@
+# Virtual environment
+.venv/
+venv/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+!example.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# PyCharm and IDE files
+.idea/
+.vscode/
+
+# Uploaded media
+media/
+
+# Local databases
+db.sqlite3
+
+# Test caches
+.pytest_cache/
+
+# Operating system files
+.DS_Store
+Thumbs.db
