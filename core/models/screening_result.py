@@ -8,8 +8,8 @@ class ScreeningResult(models.Model):
     candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE, related_name='screening_results')
     job_position = models.ForeignKey(JobPosition, on_delete=models.CASCADE, related_name='screening_results')
     score = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
-    strengths = models.JSONField(default=list)
-    missing_skills = models.JSONField(default=list)
+    strengths = models.JSONField(default=list, blank=True)
+    missing_skills = models.JSONField(default=list, blank=True)
     recommendation = models.CharField(max_length=7, choices=[
         ('proceed', 'Proceed'),
         ('hold', 'Hold'),
