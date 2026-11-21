@@ -1,19 +1,18 @@
-
 from django.urls import path
 
-from .views.department import CreateDepartmentAPIView
-from .views.job_position import CreateJobPositionAPIView
-from .views.candidate import CreateCandidateAPIView
-from .views.resume import UploadResumeAPIView
-from .views.screening_result import ViewScreeningResultAPIView
-from .views.interview_question_set import ViewInterviewQuestionsAPIView
+from .views.department import create_department
+from .views.job_position import create_job_position
+from .views.candidate import create_candidate
+from .views.resume import upload_resume
+from .views.screening_result import view_screening_result
+from .views.interview_question_set import view_interview_questions
 
 
 urlpatterns = [
-    path('departments/', CreateDepartmentAPIView.as_view()),
-    path('job-positions/', CreateJobPositionAPIView.as_view()),
-    path('candidates/', CreateCandidateAPIView.as_view()),
-    path('resumes/', UploadResumeAPIView.as_view()),
-    path('screening-results/<int:pk>/', ViewScreeningResultAPIView.as_view()),
-    path('interview-questions/<int:pk>/', ViewInterviewQuestionsAPIView.as_view()),
+    path('departments/', create_department),
+    path('job-positions/', create_job_position),
+    path('candidates/', create_candidate),
+    path('resumes/', upload_resume),
+    path('screening-results/<int:pk>/', view_screening_result),
+    path('interview-questions/<int:pk>/', view_interview_questions),
 ]
