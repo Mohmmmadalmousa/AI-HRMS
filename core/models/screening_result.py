@@ -16,7 +16,7 @@ class ScreeningResult(models.Model):
         ('reject', 'Reject'),
     ])
     summary = models.TextField()
-    raw_report = models.JSONField()
+    raw_report = models.JSONField(default=dict, blank=True)
     generated_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
