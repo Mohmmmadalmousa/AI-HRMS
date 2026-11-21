@@ -1,4 +1,6 @@
 
+from pathlib import Path
+
 from rest_framework import serializers
 from core.models import Resume
 
@@ -9,3 +11,14 @@ class ResumeSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ['id', 'uploaded_at']
 
+    def validate_file(self, value):
+        allowed_extensions = ['.pdf', '.docx', '.txt']
+
+        extension = Path(value.name).suffix.lower()
+
+        if extension not in allowed_extensions:
+            raise serializers.ValidationError(
+                "Only PDF, DOCX and TXT files are allowed."
+            )
+
+        return value
